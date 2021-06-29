@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Wed, 21 August" />
+
+        <TextView
+            android:id="@+id/flightTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Flight to Melbourne"
+            android:paddingTop="8dp"
+            android:paddingStart="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:paddingStart="8dp"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/departureAirport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="BNE" />
+
+                <TextView
+                    android:id="@+id/departTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="07:15" />
+
+                <TextView
+                    android:id="@+id/departCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Brisbane" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="2 hr 30 min"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/flightType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    tools:text="Non-Stop" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/arriveAirport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="MEL" />
+
+                <TextView
+                    android:id="@+id/arriveTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="09:45" />
+
+                <TextView
+                    android:id="@+id/arriveCity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Melbourne" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

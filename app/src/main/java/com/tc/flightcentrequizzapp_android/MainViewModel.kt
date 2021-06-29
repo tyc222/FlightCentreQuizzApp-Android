@@ -31,6 +31,8 @@ class MainViewModel : ViewModel() {
                     flightList.postValue(response.body())
                     loading.value = false
                 } else {
+                    Log.e("Message: ", response.message().toString())
+                    Log.e("Error: ", response.errorBody().toString())
                 }
             }
         }

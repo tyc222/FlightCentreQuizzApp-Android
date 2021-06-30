@@ -1,8 +1,9 @@
-package com.tc.flightcentrequizzapp_android
+package com.tc.flightcentrequizzapp_android.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import com.tc.flightcentrequizzapp_android.models.FlightModel
+import com.tc.flightcentrequizzapp_android.R
 import kotlinx.android.synthetic.main.activity_flight_detail.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter

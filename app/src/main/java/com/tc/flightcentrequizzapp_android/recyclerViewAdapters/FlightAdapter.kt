@@ -1,4 +1,4 @@
-package com.tc.flightcentrequizzapp_android
+package com.tc.flightcentrequizzapp_android.recyclerViewAdapters
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.tc.flightcentrequizzapp_android.models.FlightModel
+import com.tc.flightcentrequizzapp_android.R
+import com.tc.flightcentrequizzapp_android.views.FlightDetailActivity
 import kotlinx.android.synthetic.main.adapter_flight.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -25,7 +28,10 @@ class FlightAdapter(context: Context) : RecyclerView.Adapter<MainViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_flight, parent, false)
-        return MainViewHolder(view,context)
+        return MainViewHolder(
+            view,
+            context
+        )
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {

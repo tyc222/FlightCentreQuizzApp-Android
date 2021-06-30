@@ -1,4 +1,6 @@
-package com.tc.flightcentrequizzapp_android
+package com.tc.flightcentrequizzapp_android.repos
+
+import com.tc.flightcentrequizzapp_android.retrofit.RetrofitService
 
 class FlightRepo constructor(private val retrofitService: RetrofitService) {
 

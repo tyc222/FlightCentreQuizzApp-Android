@@ -1,9 +1,11 @@
-package com.tc.flightcentrequizzapp_android
+package com.tc.flightcentrequizzapp_android.viewModels
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.tc.flightcentrequizzapp_android.models.FlightModel
+import com.tc.flightcentrequizzapp_android.repos.FlightRepo
 import kotlinx.coroutines.*
 
 class MainViewModel : ViewModel() {

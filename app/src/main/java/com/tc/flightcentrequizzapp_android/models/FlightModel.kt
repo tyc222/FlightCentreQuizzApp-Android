@@ -1,4 +1,4 @@
-package com.tc.flightcentrequizzapp_android
+package com.tc.flightcentrequizzapp_android.models
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -48,7 +48,9 @@ data class FlightModel (
 
         companion object CREATOR : Parcelable.Creator<FlightModel> {
                 override fun createFromParcel(parcel: Parcel): FlightModel {
-                        return FlightModel(parcel)
+                        return FlightModel(
+                                parcel
+                        )
                 }
 
                 override fun newArray(size: Int): Array<FlightModel?> {

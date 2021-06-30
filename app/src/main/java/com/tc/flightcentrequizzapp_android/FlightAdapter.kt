@@ -1,10 +1,12 @@
 package com.tc.flightcentrequizzapp_android
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.adapter_flight.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -42,6 +44,8 @@ class FlightAdapter : RecyclerView.Adapter<MainViewHolder>() {
         holder.departTimeView.text = "${departDt.hour}:${departDt.minute}"
         holder.durationView.text = flight.scheduled_duration
         holder.flightTypeView.text = "Non-Stop"
+
+        holder.bind(flight)
     }
 
     override fun getItemCount(): Int {
@@ -61,9 +65,7 @@ class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val departureAirportView: TextView = itemView.findViewById(R.id.departureAirport)
     val flightToView: TextView = itemView.findViewById(R.id.flightTo)
 
-
-    // To set recylerview item onclick outside of adapter
-    fun bind() {
-
+    fun bind(flightData: FlightModel) {
+        itemView.flight.setOnClickListener { Log.e("ewf", flightData.toString()) }
     }
 }

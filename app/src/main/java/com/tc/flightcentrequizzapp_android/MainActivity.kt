@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,7 +14,9 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
-    val viewModel by lazy { ViewModelProvider(this).get(MainViewModel::class.java) }
+    private val viewModel by lazy { ViewModelProvider(this).get(MainViewModel::class.java) }
+
+    private val flightAdapter = FlightAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +25,11 @@ class MainActivity : AppCompatActivity() {
         val retrofitService = RetrofitService.getInstance()
         val flightRepo = FlightRepo(retrofitService)
 
+        flightListRecyclerview.recycledViewPool.clear()
+        flightListRecyclerview.layoutManager = LinearLayoutManager(this)
+        flightListRecyclerview.adapter = flightAdapter
+
         viewModel.getAllMovies(flightRepo)
-        viewModel.getFlightList().observe(this, Observer { Log.d("json: ", it.toString()) })
+        viewModel.getFlightList().observe(this, Observer { flightAdapter.setFlights(it) })
     }
 }

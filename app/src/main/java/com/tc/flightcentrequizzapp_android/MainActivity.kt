@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.title = "Trips";
+
         val retrofitService = RetrofitService.getInstance()
         val flightRepo = FlightRepo(retrofitService)
 

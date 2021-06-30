@@ -1,6 +1,7 @@
 package com.tc.flightcentrequizzapp_android
 
-import android.util.Log
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,9 @@ import kotlinx.android.synthetic.main.adapter_flight.view.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class FlightAdapter : RecyclerView.Adapter<MainViewHolder>() {
+
+class FlightAdapter(context: Context) : RecyclerView.Adapter<MainViewHolder>() {
+  private val context = context;
 
     var flightList = mutableListOf<FlightModel>()
 
@@ -22,7 +25,7 @@ class FlightAdapter : RecyclerView.Adapter<MainViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
 
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_flight, parent, false)
-        return MainViewHolder(view)
+        return MainViewHolder(view,context)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
@@ -53,17 +56,6 @@ class FlightAdapter : RecyclerView.Adapter<MainViewHolder>() {
     }
 }
 
-class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val dateView: TextView = itemView.findViewById(R.id.date)
-    val arriveAirportView: TextView = itemView.findViewById(R.id.arriveAirport)
-    val arriveCityView: TextView = itemView.findViewById(R.id.arriveCity)
-    val arriveTimeView: TextView = itemView.findViewById(R.id.arriveTime)
-    val durationView: TextView = itemView.findViewById(R.id.duration)
-    val flightTypeView: TextView = itemView.findViewById(R.id.flightType)
-    val departCityView: TextView = itemView.findViewById(R.id.departCity)
-    val departTimeView: TextView = itemView.findViewById(R.id.departTime)
-    val departureAirportView: TextView = itemView.findViewById(R.id.departureAirport)
-    val flightToView: TextView = itemView.findViewById(R.id.flightTo)
 class MainViewHolder(itemView: View, context: Context) : RecyclerView.ViewHolder(itemView) {
     private val context = context
     val dateView: TextView = itemView.date
@@ -78,6 +70,10 @@ class MainViewHolder(itemView: View, context: Context) : RecyclerView.ViewHolder
     val flightToView: TextView = itemView.flightTo
 
     fun bind(flightData: FlightModel) {
-        itemView.flight.setOnClickListener { Log.e("ewf", flightData.toString()) }
+        itemView.flight.setOnClickListener {
+            val intent: Intent =
+                Intent(context, FlightDetailActivity::class.java).putExtra("flightData", flightData)
+            context.startActivity(intent)
+        }
     }
 }

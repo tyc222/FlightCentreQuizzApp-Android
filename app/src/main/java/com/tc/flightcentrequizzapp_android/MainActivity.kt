@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel by lazy { ViewModelProvider(this).get(MainViewModel::class.java) }
 
-    private val flightAdapter = FlightAdapter()
+    private val flightAdapter = FlightAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

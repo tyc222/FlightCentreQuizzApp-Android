@@ -64,6 +64,18 @@ class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val departTimeView: TextView = itemView.findViewById(R.id.departTime)
     val departureAirportView: TextView = itemView.findViewById(R.id.departureAirport)
     val flightToView: TextView = itemView.findViewById(R.id.flightTo)
+class MainViewHolder(itemView: View, context: Context) : RecyclerView.ViewHolder(itemView) {
+    private val context = context
+    val dateView: TextView = itemView.date
+    val arriveAirportView: TextView = itemView.arriveAirport
+    val arriveCityView: TextView = itemView.arriveCity
+    val arriveTimeView: TextView = itemView.arriveTime
+    val durationView: TextView = itemView.duration
+    val flightTypeView: TextView = itemView.flightType
+    val departCityView: TextView = itemView.departCity
+    val departTimeView: TextView = itemView.departTime
+    val departureAirportView: TextView = itemView.departureAirport
+    val flightToView: TextView = itemView.flightTo
 
     fun bind(flightData: FlightModel) {
         itemView.flight.setOnClickListener { Log.e("ewf", flightData.toString()) }

@@ -13,7 +13,7 @@ class FlightDetailActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_flight_detail)
 
-        supportActionBar?.title = "Trips";
+        supportActionBar?.title = "Trips"
 
         val flightData: FlightModel = intent.getParcelableExtra("flightData")!!
 
